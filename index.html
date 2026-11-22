@@ -1,114 +1,162 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Venture Link – Where ideas meet capital</title>
+<title>Venture Link — Back the next big idea</title>
 <style>
-:root{--bg:#f3f6fc;--card:#fff;--tx:#17203a;--mu:#64708f;--pr:#2f5fd0;--ac:#1a9a90;--bd:#dde4f2;--hero:linear-gradient(120deg,#2f5fd0,#1a9a90)}
-@media (prefers-color-scheme:dark){:root{--bg:#0e1325;--card:#182038;--tx:#e8ecf8;--mu:#9aa6c7;--pr:#7a9cf7;--ac:#3cc7bb;--bd:#2a3456;--hero:linear-gradient(120deg,#244aa8,#14786f);color-scheme:dark}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,sans-serif}
-nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:6px;padding:10px 18px;flex-wrap:wrap}
-nav b{font-size:19px;margin-right:auto;cursor:pointer}nav a{padding:6px 12px;border-radius:8px;cursor:pointer;color:var(--mu)}nav a.on{background:var(--bg);color:var(--pr);font-weight:600}
-main{max-width:1000px;margin:auto;padding:18px}
-.hero{background:var(--hero);color:#fff;border-radius:18px;padding:44px 24px;text-align:center}.hero h1{font-size:clamp(28px,5vw,44px);margin:0 0 8px}.hero p{opacity:.92;max-width:560px;margin:0 auto 20px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:12px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.grid .card{margin:0}
-.stat{font-size:26px;font-weight:700;color:var(--pr)}.mu{color:var(--mu);font-size:13px}
-input,select,textarea{width:100%;padding:9px;margin:4px 0 10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
-button{background:var(--pr);color:#fff;border:0;border-radius:8px;padding:9px 16px;cursor:pointer;font:inherit}
-button.alt{background:var(--ac)}button.ghost{background:transparent;color:var(--pr);border:1px solid var(--pr)}button.w{background:#fff;color:#2347a0}button.o{background:transparent;color:#fff;border:1px solid #fff}
-.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:170px}
-.tag{display:inline-block;background:var(--bg);border:1px solid var(--bd);border-radius:20px;padding:1px 10px;font-size:12px;margin:2px 4px 2px 0}
-.score{float:right;font-weight:700;color:var(--ac);font-size:18px}.err{color:#d33;margin:6px 0;font-weight:600}
-.bar{display:flex;align-items:center;gap:8px;margin:6px 0}.bar i{display:block;height:12px;border-radius:6px;background:var(--ac)}.bar span{width:90px;font-size:13px}
-h2{margin:22px 0 6px}.ok{color:var(--ac);font-size:12px;font-weight:600}
-#chatb{position:fixed;right:16px;bottom:16px;z-index:9;border-radius:30px;padding:12px 18px;box-shadow:0 4px 14px #0004}
-#chat{position:fixed;right:16px;bottom:70px;width:min(340px,calc(100% - 32px));z-index:9;display:none;box-shadow:0 6px 24px #0005}
-#msgs{height:230px;overflow:auto;font-size:14px}#msgs div{margin:6px 0;padding:7px 10px;border-radius:10px;background:var(--bg)}#msgs .u{background:var(--pr);color:#fff;margin-left:30px}
+:root{--bg:#000;--sf:#111214;--sf2:#1a1b1e;--tx:#f5f5f7;--mu:#86868b;--v:#d4ff3a;--bd:#ffffff1a}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:2px;padding:12px 28px;background:#000a;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--bd);flex-wrap:wrap}
+.brand{font-weight:900;font-style:italic;font-size:20px;letter-spacing:-.5px;margin-right:auto;cursor:pointer;text-transform:uppercase}.brand i{color:var(--v);font-style:normal}
+nav a{padding:6px 14px;color:var(--mu);cursor:pointer;font-size:14px;transition:.2s}nav a:hover,nav a.on{color:#fff}
+.btn{border:0;border-radius:999px;padding:13px 26px;font:inherit;font-weight:600;cursor:pointer;transition:.25s;color:#fff;background:#ffffff1f}.btn:hover{transform:scale(1.04)}
+.btn.v{background:var(--v);color:#000}.btn.w{background:#fff;color:#000}.btn.o{background:transparent;border:1px solid #ffffff55}.btn.s{padding:8px 18px;font-size:14px}
+.wrap{max-width:1200px;margin:auto;padding:0 28px}.mu{color:var(--mu)}
+.hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 28px;overflow:hidden;text-align:center;--mx:50%;--my:40%}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px circle at var(--mx) var(--my),#d4ff3a2e,transparent 60%);pointer-events:none}
+.eye{color:var(--v);letter-spacing:.25em;text-transform:uppercase;font-size:13px;font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(46px,9.5vw,128px);line-height:.92;font-weight:900;letter-spacing:-.045em;text-transform:uppercase;font-style:italic}
+.g{background:linear-gradient(90deg,var(--v),#4ade80,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:clamp(17px,2vw,22px);color:var(--mu);max-width:640px;margin:24px auto 34px}.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}.cta+.mu{margin-top:22px;font-size:13px}
+.mq{overflow:hidden;border-block:1px solid var(--bd);padding:16px 0;white-space:nowrap}.mq div{display:inline-block;font-size:clamp(22px,4vw,44px);font-weight:900;text-transform:uppercase;font-style:italic;color:transparent;-webkit-text-stroke:1px #ffffff66;animation:mq 28s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;margin:60px auto;background:var(--bd);border-radius:24px;overflow:hidden}
+.st{background:var(--bg);padding:36px 24px;text-align:center}.st b{display:block;font-size:clamp(38px,5vw,64px);font-weight:800;letter-spacing:-.03em}.st span{color:var(--mu);font-size:14px}
+.sh{font-size:clamp(30px,5vw,56px);font-weight:800;letter-spacing:-.035em;margin:70px 0 24px}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 28px 30px;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}.rail .tile{min-width:300px;scroll-snap-align:start}
+.gridc{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.tile{--rx:0deg;--ry:0deg;position:relative;border-radius:24px;padding:22px;min-height:290px;display:flex;flex-direction:column;cursor:pointer;background:linear-gradient(160deg,var(--a),var(--b));color:#fff;transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .2s,box-shadow .3s;box-shadow:0 10px 40px #0006;overflow:hidden}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#000a);pointer-events:none}.tile>*{position:relative;z-index:1}.tile:hover{box-shadow:0 20px 60px #0009}
+.tile .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:auto}.tile h3{font-size:30px;font-weight:900;letter-spacing:-.03em;text-transform:uppercase;font-style:italic;margin-top:50px;line-height:1}.tile p{opacity:.9;font-size:14px;margin:8px 0 12px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;font-weight:600}.meta span{background:#00000066;padding:4px 10px;border-radius:99px;backdrop-filter:blur(8px)}
+.chip{display:inline-block;background:#ffffff2e;backdrop-filter:blur(8px);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700}
+.ring{--p:0;width:54px;height:54px;border-radius:50%;background:conic-gradient(var(--v) calc(var(--p)*1%),#ffffff33 0);display:grid;place-items:center}.ring b{width:44px;height:44px;border-radius:50%;background:#000c;display:grid;place-items:center;font-size:14px;color:#fff}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}.step,.card,.sc{background:var(--sf);border:1px solid var(--bd);border-radius:24px;padding:28px;transition:.3s}.step:hover,.sc:hover{background:var(--sf2);transform:translateY(-6px);border-color:#d4ff3a66}
+.step b{font-size:64px;font-weight:900;font-style:italic;color:var(--v);line-height:1}.step h3,.sc h3{margin:8px 0 4px;font-size:22px}.step p,.sc p{color:var(--mu);font-size:15px}.sc .ic{font-size:34px}
+.band{margin:90px 28px;border-radius:32px;padding:70px 24px;text-align:center;background:linear-gradient(120deg,#d4ff3a,#4ade80);color:#000}.band h2{font-size:clamp(34px,6vw,76px);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.04em;line-height:.95;margin-bottom:24px}.band .btn{background:#000;color:#fff}
+.vis{animation:up .7s both}.rv{opacity:0}@keyframes up{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.fc{padding:9px 18px;border-radius:99px;border:1px solid #ffffff40;background:transparent;color:#fff;cursor:pointer;font:inherit;font-size:14px;transition:.2s}.fc.on,.fc:hover{background:#fff;color:#000}
+input[type=range]{width:100%;accent-color:var(--v)}
+.fi{width:100%;padding:14px 18px;margin:5px 0 12px;border-radius:14px;border:1px solid var(--bd);background:var(--sf2);color:#fff;font:inherit}.fi:focus{outline:2px solid var(--v)}select.fi[multiple]{padding:8px}
+.auth{max-width:560px;margin:50px auto;background:var(--sf);border:1px solid var(--bd);border-radius:28px;padding:34px}.auth h2{font-size:32px;font-weight:900;font-style:italic;text-transform:uppercase;margin-bottom:14px}
+.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:150px}.err{color:#ff6b6b;font-weight:600;margin:8px 0}
+.big{font-size:28px;font-weight:800}.sb{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.card{margin-bottom:16px}.card h3{font-size:26px;margin:8px 0 2px}.tl div{padding:7px 0 7px 18px;border-left:2px solid var(--v);font-size:14px;color:var(--mu)}.tl b{color:#fff}
+.av{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#000;background:linear-gradient(135deg,var(--v),#22d3ee);margin-bottom:12px}
+#ov{position:fixed;inset:0;background:#000b;opacity:0;pointer-events:none;transition:.3s;z-index:30;backdrop-filter:blur(6px)}#ov.on{opacity:1;pointer-events:auto}
+#dr{position:fixed;top:0;right:0;height:100%;width:min(480px,100%);background:var(--sf);z-index:31;transform:translateX(100%);transition:.4s cubic-bezier(.2,.9,.2,1);overflow:auto}#dr.on{transform:none}
+.dh{padding:60px 28px 28px;position:relative}.dh h2{font-size:40px;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.03em;line-height:1;margin-top:14px}.db{padding:24px 28px 60px}.db .meta{margin-bottom:16px}.lead{font-size:19px;margin-bottom:10px}
+.x{position:absolute;top:16px;right:16px;border:0;background:#0006;color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px}
+.sw{display:flex;gap:12px;align-items:flex-start;margin:18px 0;font-size:14px;color:var(--mu);cursor:pointer}.sw input{display:none}.sw span{flex:none;width:44px;height:26px;border-radius:99px;background:#ffffff33;position:relative;transition:.25s}.sw span::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.25s}.sw input:checked+span{background:var(--v)}.sw input:checked+span::after{transform:translateX(18px);background:#000}
+.reveal{background:var(--sf2);border:1px solid #d4ff3a66;border-radius:18px;padding:20px;margin-top:18px;animation:up .5s both}.reveal h4{color:var(--v);margin-bottom:6px}.reveal small{display:block;color:var(--mu);margin:10px 0 14px}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);background:#fff;color:#000;padding:12px 22px;border-radius:99px;font-weight:600;opacity:0;pointer-events:none;transition:.35s;z-index:60}#toast.on{opacity:1;transform:translate(-50%,0)}
+#chatb{position:fixed;right:18px;bottom:18px;z-index:40;box-shadow:0 8px 30px #000a}
+#chat{position:fixed;right:18px;bottom:76px;width:min(350px,calc(100% - 36px));z-index:40;display:none;background:var(--sf);border:1px solid var(--bd);border-radius:22px;padding:16px;box-shadow:0 10px 40px #000}
+#msgs{height:230px;overflow:auto;font-size:14px;margin:8px 0}#msgs div{margin:6px 0;padding:8px 12px;border-radius:14px;background:var(--sf2)}#msgs .u{background:var(--v);color:#000;margin-left:36px}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:40px 0 90px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1}}
 </style></head><body>
-<nav id="nav"></nav><main id="app">Loading…</main>
-<button id="chatb" class="alt" onclick="toggleChat()">🤖 Ask AI</button>
-<div id="chat" class="card"><b>Venture AI Assistant</b><div id="msgs"><div>Hi! Ask me about matching, funding, security or mentors.</div></div>
-<input id="q" placeholder="Type and press Enter…" onkeydown="if(event.key==='Enter')ask()"></div>
+<nav id="nav"></nav><main id="app"></main><footer>© Venture Link · Market Makers · Smart India Hackathon 2025</footer>
+<div id="ov" onclick="closeDr()"></div><aside id="dr"></aside><div id="toast"></div>
+<button id="chatb" class="btn v" onclick="toggleChat()">🤖 Ask AI</button>
+<div id="chat"><b>Venture AI</b><div id="msgs"><div>Hi! Ask about matches, security, funding or mentors.</div></div><input id="q" class="fi" placeholder="Type and press Enter…" onkeydown="if(event.key==='Enter')ask()"></div>
 <script>
 const SECT=["FinTech","AgriTech","HealthTech","EdTech","CleanTech","E-commerce"],STG=["Idea","Prototype","Early revenue"];
+const GR={FinTech:["#4f46e5","#06b6d4"],AgriTech:["#15803d","#a3e635"],HealthTech:["#e11d48","#fb923c"],EdTech:["#7c3aed","#ec4899"],CleanTech:["#0891b2","#22c55e"],"E-commerce":["#f59e0b","#ef4444"]};
 const inr=n=>"₹"+(n>=1e7?(n/1e7).toFixed(1)+" Cr":n>=1e5?(n/1e5).toFixed(1)+" L":n.toLocaleString("en-IN"));
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $=s=>document.querySelector(s),fd=t=>new Date(t).toLocaleString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
-let S={users:[],ideas:[],views:[],interests:[],saved:[],mreq:[],mentors:[]},ME=null,pg="home",flt={sector:"",max:0};
+let S={users:[],ideas:[],views:[],interests:[],saved:[],mreq:[],mentors:[]},ME=null,pg="home",flt={sector:"",max:1e7};
 try{ME=localStorage.getItem("vl_me")}catch(e){}
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),2600)};
 async function api(p,method="GET",body){const r=await fetch("/api"+p,{method,headers:{"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});
 const t=await r.text();let j=null;try{j=t?JSON.parse(t):null}catch(e){}if(!r.ok)throw new Error((j&&j.message)||"Request failed ("+r.status+")");return j}
 const setMe=id=>{ME=id;try{id?localStorage.setItem("vl_me",id):localStorage.removeItem("vl_me")}catch(e){}};
 async function load(){try{S=await api("/state?me="+encodeURIComponent(ME||""))}catch(e){setMe(null);S=await api("/state")}render()}
 const me=()=>S.users.find(u=>u.id===ME),U=id=>S.users.find(u=>u.id===id)||{name:"Unknown"};
-const go=p=>{pg=p;render();scrollTo(0,0)};
+const go=p=>{pg=p;closeDr();render();scrollTo({top:0,behavior:"smooth"})};
 const score=(i,u)=>(u.sectors.includes(i.sector)?50:0)+(u.stages.includes(i.stage)?20:0)+(i.ask<=u.maxTicket?30:0);
 const ranked=u=>S.ideas.map(i=>({...i,sc:score(i,u)})).sort((a,b)=>b.sc-a.sc);
-const act=async(f)=>{try{await f();await load()}catch(e){alert(e.message)}};
+const act=async f=>{try{await f();await load()}catch(e){toast(e.message)}};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("vis");io.unobserve(e.target)}}),{threshold:.1});
+function post(){document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+document.querySelectorAll("[data-n]").forEach(el=>{const n=+el.dataset.n,d=+(el.dataset.d||0),p=el.dataset.p||"",s=el.dataset.s||"",t0=performance.now();
+const f=t=>{const k=Math.min(1,(t-t0)/1100);el.textContent=p+(n*(1-Math.pow(1-k,3))).toFixed(d)+s;if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)})}
 
 function render(){const u=me();
-$("#nav").innerHTML=`<b onclick="go('home')">🔗 Venture Link</b>`+[["home","Home"],["sec","Security"],["men","Mentors"]].concat(u?[["dash","My dashboard"]]:[]).map(([k,l])=>`<a class="${pg===k?"on":""}" onclick="go('${k}')">${l}</a>`).join("")+(u?`<span class="mu">${esc(u.name)}</span><button class="ghost" onclick="setMe(null);load().then(()=>go('home'))">Logout</button>`:"");
-$("#app").innerHTML=({home,sec,men,dash,auth})[pg.split(":")[0]](pg.split(":")[1])}
+$("#nav").innerHTML=`<div class="brand" onclick="go('home')">Venture<i>Link</i></div>`+[["home","Home"],["sec","Security"],["men","Mentors"]].concat(u?[["dash","Dashboard"]]:[]).map(([k,l])=>`<a class="${pg===k?"on":""}" onclick="go('${k}')">${l}</a>`).join("")+(u?`<span class="mu" style="margin:0 12px;font-size:14px">${esc(u.name)}</span><button class="btn s o" onclick="setMe(null);load().then(()=>go('home'))">Log out</button>`:`<button class="btn s v" onclick="go('auth:investor')">Get started</button>`);
+$("#app").innerHTML=({home,sec,men,dash,auth})[pg.split(":")[0]](pg.split(":")[1]);post()}
 
-function bars(){const c=SECT.map(s=>[s,S.ideas.filter(i=>i.sector===s).length]),m=Math.max(...c.map(x=>x[1]),1);return c.map(([s,n])=>`<div class="bar"><span>${s}</span><i style="width:${n/m*60}%"></i> ${n}</div>`).join("")}
-function home(){const u=me(),tot=S.ideas.reduce((a,i)=>a+i.ask,0);
-return`<div class="hero"><h1>Connect. Invest. Grow.</h1><p>The trusted platform where verified student entrepreneurs meet serious investors, with smart matching and built-in idea protection.</p>
-${u?`<button class="w" onclick="go('dash')">Open my dashboard</button>`:`<button class="w" onclick="go('auth:entrepreneur')">I’m an Entrepreneur</button> <button class="o" onclick="go('auth:investor')">I’m an Investor</button><br><br><span style="opacity:.85">Quick demo:</span> <button class="o" onclick="demo('u1')">▶ Demo as Entrepreneur</button> <button class="o" onclick="demo('v1')">▶ Demo as Investor</button>`}</div>
-<div class="grid" style="margin-top:14px"><div class="card"><div class="stat">${S.ideas.length}</div>Verified ideas live</div><div class="card"><div class="stat">${inr(tot)}</div>Total funding sought</div>
-<div class="card"><div class="stat">${S.users.filter(x=>x.role==="entrepreneur").length}</div>Verified entrepreneurs</div><div class="card"><div class="stat">${S.users.filter(x=>x.role==="investor").length}</div>Verified investors</div></div>
-<h2>How it works</h2><div class="grid"><div class="card"><b>1 · Verify</b><p class="mu">Aadhaar/PAN, email and 18+ age check for every user.</p></div><div class="card"><b>2 · Match</b><p class="mu">Scoring on sector, stage and ticket size.</p></div>
-<div class="card"><b>3 · Protect</b><p class="mu">NDA gate and timestamped access log on every view.</p></div><div class="card"><b>4 · Grow</b><p class="mu">Express interest, get mentored, close the round.</p></div></div>
-<h2>Ideas by sector</h2><div class="card">${bars()}</div>`}
-function demo(id){setMe(id);load().then(()=>go("dash"))}
+const tile=(i,u)=>{const [a,b]=GR[i.sector]||["#333","#666"],sc=u&&u.role==="investor"?score(i,u):null;
+return`<div class="tile rv" style="--a:${a};--b:${b}" onclick="openIdea('${i.id}')"><div class="top"><span class="chip">${i.sector}</span>${sc!==null?`<div class="ring" style="--p:${sc}"><b>${sc}</b></div>`:""}</div><h3>${esc(i.title)}</h3><p>${esc(i.pitch)}</p><div class="meta"><span>${inr(i.ask)}</span><span>${i.stage}</span><span>📍 ${esc(i.city)}</span></div></div>`};
 
-function auth(role){const inv=role==="investor";return`<div class="card"><h2 style="margin-top:0">${inv?"Investor":"Entrepreneur"} sign-up / login</h2>
-<div class="row"><div>Full name<input id="n"></div><div>Email<input id="e" type="email"></div></div>
-<div class="row"><div>ID type<select id="t"><option>Aadhaar</option><option>PAN</option></select></div><div>ID number<input id="d" placeholder="12-digit Aadhaar or ABCDE1234F"></div><div>Date of birth<input id="b" type="date"></div></div>
-${inv?`<div class="row"><div>Preferred sectors (Ctrl/Cmd for many)<select id="s" multiple size="6">${SECT.map(x=>`<option>${x}</option>`).join("")}</select></div><div>Preferred stages<select id="g" multiple size="3">${STG.map(x=>`<option>${x}</option>`).join("")}</select>Max ticket (₹)<input id="m" type="number" value="3000000"></div></div>`:""}
-<div id="er" class="err"></div><button onclick="doAuth('${role}')">Verify &amp; continue</button> <button class="ghost" onclick="go('home')">Back</button></div>`}
+function home(){const u=me(),tot=S.ideas.reduce((a,i)=>a+i.ask,0),ct=S.users.filter(x=>x.role==="entrepreneur").length,iv=S.users.filter(x=>x.role==="investor").length;
+return`<section class="hero" onpointermove="this.style.setProperty('--mx',event.clientX+'px');this.style.setProperty('--my',(event.clientY-this.getBoundingClientRect().top)+'px')">
+<div class="eye">Where ideas meet capital</div><h1>Back the<br><span class="g">next big</span><br>idea.</h1>
+<p class="sub">India’s verified marketplace for student founders and serious investors. Smart matching. NDA-protected pitches. Zero guesswork.</p>
+<div class="cta">${u?`<button class="btn v" onclick="go('dash')">Open my dashboard →</button>`:`<button class="btn v" onclick="go('auth:entrepreneur')">I’m an Entrepreneur</button><button class="btn w" onclick="go('auth:investor')">I’m an Investor</button><button class="btn o" onclick="demo('v1')">▶ Demo as Investor</button><button class="btn o" onclick="demo('u1')">▶ Demo as Founder</button>`}</div></section>
+<div class="mq"><div>${(SECT.join(" · ")+" · ").repeat(4)}</div></div>
+<div class="wrap"><div class="stats rv"><div class="st"><b data-n="${S.ideas.length}">0</b><span>Verified ideas</span></div><div class="st"><b data-n="${tot/1e7}" data-d="1" data-p="₹" data-s=" Cr">0</b><span>Funding sought</span></div><div class="st"><b data-n="${ct}">0</b><span>Entrepreneurs</span></div><div class="st"><b data-n="${iv}">0</b><span>Investors</span></div></div>
+<h2 class="sh rv">Trending ideas.</h2></div><div class="rail">${S.ideas.slice(0,8).map(i=>tile(i,u)).join("")}</div>
+<div class="wrap"><h2 class="sh rv">How it works.</h2><div class="steps">${[["01","Verify","Aadhaar or PAN, email and an 18+ age check for everyone."],["02","Match","Ideas are scored on sector, stage and ticket size."],["03","Protect","Details unlock only after an NDA, and every view is logged."],["04","Grow","Show interest, get mentored and close the round."]].map(s=>`<div class="step rv"><b>${s[0]}</b><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join("")}</div></div>
+<div class="band rv"><h2>Great ideas<br>deserve capital.</h2>${u?`<button class="btn" onclick="go('dash')">Go to dashboard</button>`:`<button class="btn" onclick="go('auth:entrepreneur')">Join Venture Link</button>`}</div>`}
+const demo=id=>{setMe(id);load().then(()=>go("dash"))};
+
+function auth(role){const inv=role==="investor";return`<div class="auth vis"><h2>${inv?"Investor":"Founder"} sign-up</h2><p class="mu" style="margin-bottom:16px">Verify once. Existing users are signed straight in.</p>
+<div class="row"><div>Full name<input id="n" class="fi"></div><div>Email<input id="e" type="email" class="fi"></div></div>
+<div class="row"><div>ID type<select id="t" class="fi"><option>Aadhaar</option><option>PAN</option></select></div><div>ID number<input id="d" class="fi" placeholder="12 digits or ABCDE1234F"></div><div>Date of birth<input id="b" type="date" class="fi"></div></div>
+${inv?`<div class="row"><div>Sectors (Ctrl/Cmd for many)<select id="s" multiple size="6" class="fi">${SECT.map(x=>`<option>${x}</option>`).join("")}</select></div><div>Stages<select id="g" multiple size="3" class="fi">${STG.map(x=>`<option>${x}</option>`).join("")}</select>Max ticket (₹)<input id="m" type="number" class="fi" value="3000000"></div></div>`:""}
+<div id="er" class="err"></div><button class="btn v" onclick="doAuth('${role}')">Verify &amp; continue</button> <button class="btn o" onclick="go('home')">Back</button></div>`}
 async function doAuth(role){const pick=id=>$(id)?[...$(id).selectedOptions].map(o=>o.value):[];
 try{const u=await api("/register","POST",{name:$("#n").value,email:$("#e").value,role,idType:$("#t").value,idNumber:$("#d").value,dob:$("#b").value,sectors:pick("#s"),stages:pick("#g"),maxTicket:$("#m")?+$("#m").value:0});
-setMe(u.id);await load();go("dash")}catch(e){$("#er").textContent="⚠ "+e.message}}
+setMe(u.id);await load();toast("Welcome, "+u.name+" ✓");go("dash")}catch(e){$("#er").textContent="⚠ "+e.message}}
 
-function dash(){const u=me();if(!u)return`<div class="card">Please sign in from Home.</div>`;return u.role==="investor"?investor(u):founder(u)}
+function dash(){const u=me();if(!u)return`<div class="wrap"><h2 class="sh">Please sign in.</h2></div>`;return u.role==="investor"?investor(u):founder(u)}
+function investor(u){return`<div class="wrap"><div class="eye" style="margin-top:50px">Verified ${esc(u.idMasked)} · ${esc(u.type||"Investor")}</div><h1 style="font-size:clamp(40px,7vw,88px)">Your <span class="g">picks.</span></h1>
+<div class="stats"><div class="st"><b data-n="${ranked(u).filter(i=>i.sc>=70).length}">0</b><span>Strong matches</span></div><div class="st"><b data-n="${new Set(S.views.map(v=>v.idea)).size}">0</b><span>Ideas viewed</span></div><div class="st"><b data-n="${S.interests.length}">0</b><span>Interests sent</span></div><div class="st"><b data-n="${S.saved.length}">0</b><span>Saved</span></div></div>
+<div class="chips" id="chips"></div><label class="mu">Max ticket: <b id="mx" style="color:#fff"></b></label><input type="range" id="rg" min="500000" max="10000000" step="500000" value="${flt.max}" oninput="flt.max=+this.value;grid()"><br><br><div class="gridc" id="gr"></div></div>`}
+function chips(){$("#chips").innerHTML=["",...SECT].map(s=>`<button class="fc ${flt.sector===s?"on":""}" onclick="flt.sector='${s}';chips();grid()">${s||"All"}</button>`).join("")}
+function grid(){const u=me(),L=ranked(u).filter(i=>(!flt.sector||i.sector===flt.sector)&&i.ask<=flt.max);$("#mx").textContent=flt.max>=1e7?"Any":inr(flt.max);
+$("#gr").innerHTML=L.map(i=>tile(i,u)).join("")||`<p class="mu">No ideas match these filters.</p>`;document.querySelectorAll("#gr .rv").forEach(e=>io.observe(e))}
+
 function founder(u){const mine=S.ideas.filter(i=>i.owner===u.id),invs=S.users.filter(x=>x.role==="investor");
-return`<h2 style="margin-top:0">Welcome, ${esc(u.name)} <span class="ok">✔ Verified ${u.idMasked}</span></h2>
-<div class="grid"><div class="card"><div class="stat">${mine.length}</div>Ideas pitched</div><div class="card"><div class="stat">${S.views.length}</div>Investor views</div><div class="card"><div class="stat">${S.interests.length}</div>Interested investors</div><div class="card"><div class="stat">${inr(mine.reduce((a,i)=>a+i.ask,0))}</div>Total ask</div></div>
-<details class="card"><summary><b>+ Pitch a new idea</b></summary><div class="row"><div>Title<input id="t"></div><div>Sector<select id="s">${SECT.map(x=>`<option>${x}</option>`).join("")}</select></div><div>Stage<select id="g">${STG.map(x=>`<option>${x}</option>`).join("")}</select></div><div>Ask (₹)<input id="a" type="number"></div></div>
-Public teaser<input id="p" maxlength="120">Confidential details (NDA-gated)<textarea id="x" rows="3"></textarea><button onclick="addIdea()">Publish</button></details>
-<h2>Your ideas</h2>${mine.map(i=>{const v=S.views.filter(w=>w.idea===i.id).sort((a,b)=>b.ts-a.ts),k=S.interests.filter(w=>w.idea===i.id),top=invs.map(x=>({x,s:score(i,x)})).sort((a,b)=>b.s-a.s)[0];
-return`<div class="card"><b>${esc(i.title)}</b> <span class="tag">${i.sector}</span><span class="tag">${i.stage}</span><span class="tag">${inr(i.ask)}</span><p>${esc(i.pitch)}</p>
-<div class="mu"><b>🔒 Access log:</b> ${v.length?v.map(w=>`<div>👁 ${esc(U(w.by).name)} (${esc(U(w.by).type)}) · ${fd(w.ts)}</div>`).join(""):"no views yet"}</div>
-<div class="mu"><b>⭐ Interested:</b> ${k.length?k.map(w=>esc(U(w.by).name)).join(", "):"none yet"}</div>${top?`<div class="mu"><b>🤖 Best-matched investor:</b> ${esc(top.x.name)} (${top.s}% match)</div>`:""}</div>`}).join("")||`<p class="mu">No ideas yet.</p>`}`}
-function addIdea(){act(()=>api("/ideas","POST",{ownerId:ME,title:$("#t").value,sector:$("#s").value,stage:$("#g").value,ask:+$("#a").value,pitch:$("#p").value,detail:$("#x").value}))}
+return`<div class="wrap"><div class="eye" style="margin-top:50px">Verified ${esc(u.idMasked)} · ${esc(u.city)}</div><h1 style="font-size:clamp(40px,7vw,88px)">Your <span class="g">pitches.</span></h1>
+<div class="stats"><div class="st"><b data-n="${mine.length}">0</b><span>Ideas live</span></div><div class="st"><b data-n="${S.views.length}">0</b><span>Investor views</span></div><div class="st"><b data-n="${S.interests.length}">0</b><span>Interested</span></div><div class="st"><b data-n="${mine.reduce((a,i)=>a+i.ask,0)/1e5}" data-d="1" data-p="₹" data-s=" L">0</b><span>Total ask</span></div></div>
+<button class="btn v" onclick="openPitch()">+ Pitch a new idea</button><br><br>
+${mine.map(i=>{const v=S.views.filter(w=>w.idea===i.id).sort((a,b)=>b.ts-a.ts),k=S.interests.filter(w=>w.idea===i.id),top=invs.map(x=>({x,s:score(i,x)})).sort((a,b)=>b.s-a.s)[0],[a,b]=GR[i.sector]||["#333","#666"];
+return`<div class="card rv"><div class="sb"><div><span class="chip" style="background:linear-gradient(90deg,${a},${b})">${i.sector}</span><h3>${esc(i.title)}</h3><p class="mu">${esc(i.pitch)}</p></div><div class="big">${inr(i.ask)}</div></div>
+<div class="tl" style="margin-top:14px"><b>🔒 Access log</b>${v.length?v.map(w=>`<div><b>${esc(U(w.by).name)}</b> (${esc(U(w.by).type)}) viewed · ${fd(w.ts)}</div>`).join(""):`<div>No views yet</div>`}</div>
+<p style="margin-top:12px">⭐ <b>Interested:</b> <span class="mu">${k.length?k.map(w=>esc(U(w.by).name)).join(", "):"none yet"}</span></p>${top?`<p>🤖 <b>Best match:</b> <span class="mu">${esc(top.x.name)} · ${top.s}%</span></p>`:""}</div>`}).join("")||`<p class="mu">No ideas yet.</p>`}</div>`}
 
-function investor(u){const L=ranked(u).filter(i=>(!flt.sector||i.sector===flt.sector)&&(!flt.max||i.ask<=flt.max));
-return`<h2 style="margin-top:0">Welcome, ${esc(u.name)} <span class="ok">✔ Verified ${u.idMasked}</span></h2>
-<div class="grid"><div class="card"><div class="stat">${ranked(u).filter(i=>i.sc>=70).length}</div>Strong matches (70%+)</div><div class="card"><div class="stat">${new Set(S.views.map(v=>v.idea)).size}</div>Ideas viewed</div><div class="card"><div class="stat">${S.interests.length}</div>Interests sent</div><div class="card"><div class="stat">${S.saved.length}</div>Saved</div></div>
-<p class="mu">Focus: ${u.sectors.join(", ")} · ${u.stages.join(", ")} · up to ${inr(u.maxTicket)}</p>
-<div class="row"><div><select onchange="flt.sector=this.value;render()"><option value="">All sectors</option>${SECT.map(x=>`<option ${flt.sector===x?"selected":""}>${x}</option>`).join("")}</select></div>
-<div><select onchange="flt.max=+this.value;render()">${[[0,"Any ticket size"],[1000000,"Up to ₹10 L"],[3000000,"Up to ₹30 L"],[6000000,"Up to ₹60 L"]].map(([v,l])=>`<option value="${v}" ${flt.max===v?"selected":""}>${l}</option>`).join("")}</select></div></div>
-${L.map(i=>`<div class="card"><span class="score">${i.sc}% match</span><b>${esc(i.title)}</b> <span class="tag">${i.sector}</span><span class="tag">${i.stage}</span><span class="tag">${inr(i.ask)}</span><span class="tag">📍${esc(i.city)}</span>
-<p>${esc(i.pitch)} <span class="mu">by ${esc(U(i.owner).name)} ✔</span></p><div id="d${i.id}"><button onclick="nda('${i.id}')">View confidential details</button> <button class="ghost" onclick="act(()=>api('/ideas/${i.id}/save?investorId='+ME,'POST'))">${S.saved.includes(i.id)?"★ Saved":"☆ Save"}</button></div></div>`).join("")||`<p class="mu">No ideas match these filters.</p>`}`}
-function nda(id){$("#d"+id).innerHTML=`<label><input type="checkbox" id="n${id}" style="width:auto"> I accept the NDA. I won’t copy or share this idea, and my access is logged.</label><br><button onclick="reveal('${id}')">Accept &amp; view</button>`}
-async function reveal(id){if(!$("#n"+id).checked)return alert("Please accept the NDA first.");
+function openPitch(){$("#dr").innerHTML=`<div class="dh" style="background:linear-gradient(135deg,#d4ff3a,#4ade80);color:#000"><button class="x" onclick="closeDr()">✕</button><h2>New pitch</h2></div><div class="db">Title<input id="t" class="fi"><div class="row"><div>Sector<select id="s" class="fi">${SECT.map(x=>`<option>${x}</option>`).join("")}</select></div><div>Stage<select id="g" class="fi">${STG.map(x=>`<option>${x}</option>`).join("")}</select></div></div>Ask (₹)<input id="a" type="number" class="fi">Public teaser<input id="p" maxlength="120" class="fi">Confidential details (NDA-gated)<textarea id="x" rows="4" class="fi"></textarea><button class="btn v" onclick="addIdea()">Publish pitch</button></div>`;showDr()}
+async function addIdea(){try{await api("/ideas","POST",{ownerId:ME,title:$("#t").value,sector:$("#s").value,stage:$("#g").value,ask:+$("#a").value,pitch:$("#p").value,detail:$("#x").value});closeDr();toast("Pitch published 🚀");await load()}catch(e){toast(e.message)}}
+
+function showDr(){$("#ov").classList.add("on");$("#dr").classList.add("on")}
+function closeDr(){$("#ov").classList.remove("on");$("#dr").classList.remove("on")}
+function openIdea(id){const i=S.ideas.find(x=>x.id===id),u=me();if(!u)return toast("Sign in or try a demo to view ideas");const [a,b]=GR[i.sector]||["#333","#666"];
+const body=u.role==="investor"?`<div id="gate"><label class="sw"><input type="checkbox" id="nd"><span></span><div>I accept the NDA. I won’t copy or share this idea, and my access is logged.</div></label><button class="btn v" onclick="reveal('${id}')">Unlock confidential details</button></div>`:`<p class="mu">Confidential details are visible only to NDA-verified investors.</p>`;
+$("#dr").innerHTML=`<div class="dh" style="background:linear-gradient(135deg,${a},${b})"><button class="x" onclick="closeDr()">✕</button><span class="chip">${i.sector}</span><h2>${esc(i.title)}</h2></div><div class="db"><div class="meta"><span>${inr(i.ask)} ask</span><span>${i.stage}</span><span>📍 ${esc(i.city)}</span></div><p class="lead">${esc(i.pitch)}</p><p class="mu">Founder: ${esc(U(i.owner).name)} ✔ verified</p>${body}</div>`;showDr()}
+async function reveal(id){if(!$("#nd").checked)return toast("Please accept the NDA first");
 try{const r=await api(`/ideas/${id}/view?investorId=${ME}&ndaAccepted=true`,"POST");
-$("#d"+id).innerHTML=`<div class="card" style="background:var(--bg)"><b>🔓 Confidential:</b> ${esc(r.detail)}<div class="mu">Access logged at ${fd(r.ts)} · ID ${esc(ME)}</div><button class="alt" onclick="interest('${id}')">Express interest</button> <span id="m${id}"></span></div>`}catch(e){alert(e.message)}}
-async function interest(id){try{await api(`/ideas/${id}/interest?investorId=${ME}`,"POST");$("#m"+id).textContent="✅ Interest sent to the founder."}catch(e){alert(e.message)}}
+$("#gate").innerHTML=`<div class="reveal"><h4>🔓 Confidential</h4><p>${esc(r.detail)}</p><small>Access logged ${fd(r.ts)} · ${esc(ME)}</small><div class="row"><button class="btn v s" onclick="interest('${id}')">Express interest</button><button class="btn o s" onclick="act(()=>api('/ideas/${id}/save?investorId='+ME,'POST'));toast('Saved list updated')">☆ Save</button></div></div>`;load()}catch(e){toast(e.message)}}
+async function interest(id){try{await api(`/ideas/${id}/interest?investorId=${ME}`,"POST");toast("Interest sent to the founder ✓");load()}catch(e){toast(e.message)}}
 
-function sec(){const X=[["🪪","User verification","Aadhaar/PAN, email and 18+ age checks, validated on the server."],["🛡️","Idea & prototype protection","Confidential details never leave the server until an NDA is accepted."],["⏱️","Timestamped access log","Every view is stored with investor identity and time."],["🤖","Matching security","Matching uses only public teasers."],["⚖️","Legal & compliance","NDA acceptance is recorded for each view."],["💬","Communication security","Contact stays in-platform until both sides consent."],["🔐","Data privacy","IDs are masked; only the last 4 characters are kept."]];
-return`<h2 style="margin-top:0">Security — anti idea-theft measures</h2><div class="grid">${X.map(s=>`<div class="card"><div style="font-size:26px">${s[0]}</div><b>${s[1]}</b><p class="mu">${s[2]}</p></div>`).join("")}</div>`}
-function men(){return`<h2 style="margin-top:0">Mentorship &amp; community</h2><div class="grid">${S.mentors.map(m=>`<div class="card"><b>${m.n}</b><div class="mu">${m.r}</div><span class="tag">${m.s}</span><br><br><button class="${S.mreq.includes(m.id)?"alt":""}" onclick="book('${m.id}')">${S.mreq.includes(m.id)?"✔ Session requested":"Request session"}</button></div>`).join("")}</div>`}
-function book(id){if(!ME)return alert("Please sign in or use a demo login first.");act(()=>api(`/mentors/${id}/request?userId=${ME}`,"POST"))}
+function sec(){const X=[["🪪","Verified identity","Aadhaar or PAN, email and 18+ checks, validated on the server."],["🛡️","NDA gate","Confidential details never leave the server until an NDA is accepted."],["⏱️","Access log","Every view is stored with the investor and a timestamp."],["🤖","Safe matching","Matching uses only public teasers."],["⚖️","Compliance","NDA acceptance is recorded for each view."],["💬","Private contact","Contact stays in-platform until both sides agree."],["🔐","Data privacy","IDs are masked and only the last 4 characters are kept."]];
+return`<div class="wrap"><h1 style="font-size:clamp(40px,7vw,96px);margin-top:50px">Built to <span class="g">protect.</span></h1><p class="sub" style="margin-left:0">Seven anti idea-theft measures behind every pitch.</p><div class="steps">${X.map(s=>`<div class="sc rv"><div class="ic">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join("")}</div></div>`}
+function men(){return`<div class="wrap"><h1 style="font-size:clamp(40px,7vw,96px);margin-top:50px">Learn from <span class="g">the best.</span></h1><p class="sub" style="margin-left:0">Request a session with an expert in your sector.</p><div class="steps">${S.mentors.map(m=>`<div class="sc rv"><div class="av">${m.n.split(" ").filter(w=>!w.endsWith(".")).map(w=>w[0]).slice(0,2).join("")}</div><h3>${m.n}</h3><p>${m.r}</p><p style="margin:8px 0 14px"><span class="chip" style="background:#ffffff1f">${m.s}</span></p><button class="btn s ${S.mreq.includes(m.id)?"v":""}" onclick="book('${m.id}')">${S.mreq.includes(m.id)?"✔ Requested":"Request session"}</button></div>`).join("")}</div></div>`}
+function book(id){if(!ME)return toast("Sign in or use a demo first");act(()=>api(`/mentors/${id}/request?userId=${ME}`,"POST")).then(()=>toast("Session requested ✓"))}
 
 function toggleChat(){const c=$("#chat");c.style.display=c.style.display==="block"?"none":"block"}
 function reply(q){q=q.toLowerCase();const u=me();
 if(/match|best|top|recommend/.test(q)){if(u&&u.role==="investor"){const t=ranked(u)[0];return`Your top match is “${t.title}” (${t.sc}% match, ${t.sector}, ${inr(t.ask)}).`}
-if(u){const i=S.ideas.find(x=>x.owner===u.id);if(i){const b=S.users.filter(x=>x.role==="investor").map(x=>({x,s:score(i,x)})).sort((a,b)=>b.s-a.s)[0];return`For “${i.title}”, your best investor match is ${b.x.name} (${b.s}%).`}}return"Sign in (or use a demo login) and I’ll find your best matches."}
+if(u){const i=S.ideas.find(x=>x.owner===u.id);if(i){const b=S.users.filter(x=>x.role==="investor").map(x=>({x,s:score(i,x)})).sort((a,b)=>b.s-a.s)[0];return`For “${i.title}”, your best investor match is ${b.x.name} (${b.s}%).`}}return"Sign in (or use a demo) and I’ll find your best matches."}
 if(/secur|theft|nda|safe|steal/.test(q))return"Confidential details are NDA-gated on the server, every view is timestamped, and IDs are masked.";
-if(/fund|raise|ask|pitch/.test(q))return"Tip: keep the teaser under 120 characters, state traction clearly, and tie your ask to a milestone.";
-if(/mentor/.test(q))return"Open the Mentors page to request a session with an expert in your sector.";
+if(/fund|raise|ask|pitch/.test(q))return"Tip: keep your teaser under 120 characters, show traction, and tie your ask to a milestone.";
+if(/mentor/.test(q))return"Open Mentors to request a session with an expert in your sector.";
 return"Try asking about matches, security, funding or mentors."}
 function ask(){const i=$("#q"),v=i.value.trim();if(!v)return;const m=$("#msgs");m.innerHTML+=`<div class="u">${esc(v)}</div><div>${esc(reply(v))}</div>`;i.value="";m.scrollTop=1e9}
-load().catch(e=>{$("#app").innerHTML=`<div class="card err">Could not reach the server: ${esc(e.message)}</div>`});
+
+document.addEventListener("pointermove",e=>{const t=e.target.closest&&e.target.closest(".tile");if(t){const r=t.getBoundingClientRect();t.style.setProperty("--rx",((e.clientY-r.top)/r.height-.5)*-9+"deg");t.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*9+"deg")}});
+document.addEventListener("mouseout",e=>{const t=e.target.closest&&e.target.closest(".tile");if(t&&!t.contains(e.relatedTarget)){t.style.setProperty("--rx","0deg");t.style.setProperty("--ry","0deg")}});
+const _r=render;render=function(){_r();if(pg==="dash"&&me()&&me().role==="investor"){chips();grid()}};
+load().catch(e=>{$("#app").innerHTML=`<div class="wrap"><h2 class="sh">Could not reach the server: ${esc(e.message)}</h2></div>`});
 </script></body></html>
