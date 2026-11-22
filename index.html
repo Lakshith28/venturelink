@@ -2,6 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Venture Link — Back the next big idea</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#000;--sf:#111214;--sf2:#1a1b1e;--tx:#f5f5f7;--mu:#86868b;--v:#d4ff3a;--bd:#ffffff1a}
 *{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
@@ -54,6 +55,29 @@ input[type=range]{width:100%;accent-color:var(--v)}
 #msgs{height:230px;overflow:auto;font-size:14px;margin:8px 0}#msgs div{margin:6px 0;padding:8px 12px;border-radius:14px;background:var(--sf2)}#msgs .u{background:var(--v);color:#000;margin-left:36px}
 footer{text-align:center;color:var(--mu);font-size:13px;padding:40px 0 90px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1}}
+
+:root{--bg:#e4e3df;--sf:#fff;--sf2:#f1f0ec;--tx:#0d1b3d;--mu:#5b6478;--v:#1550a8;--gr:#1e9e96;--gd:#1f7a0f;--gold:#f2c94c;--bd:#0d1b3d1f}
+body{font-family:Montserrat,-apple-system,"Helvetica Neue",Arial,sans-serif}
+h1,h2,.brand,.tile h3,.step b,.big,.st b{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-style:normal;font-weight:400;letter-spacing:.01em}
+h1{line-height:1;letter-spacing:.005em}.sh,.auth h2,.band h2,.dh h2{font-weight:400;font-style:normal}
+nav{background:#e4e3dfcc}.brand{color:#1550a8}.brand i{color:#1f7a0f}nav a:hover,nav a.on{color:var(--tx)}
+.btn{background:#0d1b3d14;color:var(--tx)}.btn.v{background:var(--v);color:#fff}.btn.w{background:#fff;color:var(--v);box-shadow:0 2px 10px #0d1b3d1f}.btn.o{border-color:#0d1b3d55;color:var(--tx);background:transparent}
+.g{background:linear-gradient(90deg,#1550a8,#1e9e96,#1f7a0f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero::before{background:radial-gradient(620px circle at var(--mx) var(--my),#1e9e9633,transparent 60%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:130px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0 70 C200 10 400 130 600 70 S1000 20 1200 80 V120 H0Z' fill='%231e9e96' fill-opacity='.35'/%3E%3Cpath d='M0 95 C250 40 450 140 700 90 S1050 50 1200 100 V120 H0Z' fill='%231f7a0f' fill-opacity='.5'/%3E%3C/svg%3E") bottom/100% 100% no-repeat}
+.bulb{position:absolute;font-size:46px;animation:fl 4s ease-in-out infinite;z-index:1}@keyframes fl{50%{transform:translateY(-16px) rotate(6deg)}}
+.mq div{-webkit-text-stroke:1px #1550a8aa}.st{background:#fff}.tile{box-shadow:0 10px 30px #0d1b3d33}.ring{background:conic-gradient(var(--gold) calc(var(--p)*1%),#ffffff44 0)}
+.db .meta span{background:#1550a81a;color:#1550a8}.card .chip{color:#fff}.sc .chip{background:#1550a81a!important;color:#1550a8}
+.step:hover,.sc:hover{background:#fff;border-color:#1e9e96;box-shadow:0 14px 34px #0d1b3d22}
+.band{background:linear-gradient(120deg,#1550a8,#1e9e96);color:#fff}.band .btn{background:#fff;color:#1550a8}.qt{max-width:560px;margin:0 auto 24px;opacity:.92}
+.fc{border-color:#0d1b3d55;color:var(--tx)}.fc.on,.fc:hover{background:#1550a8;border-color:#1550a8;color:#fff}
+.fi{color:var(--tx);background:#fff}.tl b{color:var(--tx)}.av{color:#fff;background:linear-gradient(135deg,#1550a8,#1e9e96)}
+#ov{background:#0d1b3d99}.dh{color:#fff}.sw span{background:#0d1b3d33}.sw input:checked+span::after{background:#fff}
+.reveal{border-color:#1550a866}#toast{background:#0d1b3d;color:#fff}#msgs .u{background:var(--v);color:#fff}
+.dark{background:#0a0506;color:#fff;border-radius:32px;margin:40px 0;padding:60px 28px}.dark h2{font-size:clamp(36px,7vw,88px);line-height:1;text-transform:uppercase}.dark .r{color:#b3202a}
+.dark ul{list-style:none;padding:0;margin-top:28px;display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.dark li{background:#ffffff0f;border:1px solid #ffffff1f;border-radius:20px;padding:24px;color:#d8d6d0}.dark li b{display:block;color:#e0453a;font-size:19px;margin-bottom:6px;text-transform:uppercase}
+.dual{margin:40px 0;border-radius:32px;padding:50px 28px;background:linear-gradient(110deg,#4a148c,#3a56b0 50%,#46d1c0);color:#fff}.dual h2{font-size:clamp(36px,6vw,72px);text-transform:uppercase;margin-bottom:22px}
+.dual .pt{background:#ffffff1f;backdrop-filter:blur(10px);border:1px solid #ffffff40;border-radius:24px;padding:28px;cursor:pointer;transition:.3s}.dual .pt:hover{transform:translateY(-6px);background:#ffffff33}.dual .pt h3{font-size:24px;margin-bottom:6px}.dual .pt p{opacity:.92}
 </style></head><body>
 <nav id="nav"></nav><main id="app"></main><footer>© Venture Link · Market Makers · Smart India Hackathon 2025</footer>
 <div id="ov" onclick="closeDr()"></div><aside id="dr"></aside><div id="toast"></div>
@@ -91,14 +115,16 @@ return`<div class="tile rv" style="--a:${a};--b:${b}" onclick="openIdea('${i.id}
 
 function home(){const u=me(),tot=S.ideas.reduce((a,i)=>a+i.ask,0),ct=S.users.filter(x=>x.role==="entrepreneur").length,iv=S.users.filter(x=>x.role==="investor").length;
 return`<section class="hero" onpointermove="this.style.setProperty('--mx',event.clientX+'px');this.style.setProperty('--my',(event.clientY-this.getBoundingClientRect().top)+'px')">
-<div class="eye">Where ideas meet capital</div><h1>Back the<br><span class="g">next big</span><br>idea.</h1>
+<span class="bulb" style="left:7%;top:16%">💡</span><span class="bulb" style="right:9%;top:22%;animation-delay:1.2s">💡</span><span class="bulb" style="right:15%;bottom:26%;animation-delay:.6s">✈️</span><div class="eye">Where ideas meet capital</div><h1>Back the<br><span class="g">next big</span><br>idea.</h1>
 <p class="sub">India’s verified marketplace for student founders and serious investors. Smart matching. NDA-protected pitches. Zero guesswork.</p>
 <div class="cta">${u?`<button class="btn v" onclick="go('dash')">Open my dashboard →</button>`:`<button class="btn v" onclick="go('auth:entrepreneur')">I’m an Entrepreneur</button><button class="btn w" onclick="go('auth:investor')">I’m an Investor</button><button class="btn o" onclick="demo('v1')">▶ Demo as Investor</button><button class="btn o" onclick="demo('u1')">▶ Demo as Founder</button>`}</div></section>
 <div class="mq"><div>${(SECT.join(" · ")+" · ").repeat(4)}</div></div>
+<div class="wrap"><section class="dark rv"><h2><span class="r">Dark</span> reality of the market</h2><ul><li><b>Ideas die early</b>Brilliant startup concepts never reach execution because of poor access to capital.</li><li><b>Investors stay cautious</b>Billions in funds exist, but trust gaps and verification issues block access.</li><li><b>Wasted potential</b>Skilled youth with innovative ideas end up underpaid or unemployed.</li></ul></section></div>
 <div class="wrap"><div class="stats rv"><div class="st"><b data-n="${S.ideas.length}">0</b><span>Verified ideas</span></div><div class="st"><b data-n="${tot/1e7}" data-d="1" data-p="₹" data-s=" Cr">0</b><span>Funding sought</span></div><div class="st"><b data-n="${ct}">0</b><span>Entrepreneurs</span></div><div class="st"><b data-n="${iv}">0</b><span>Investors</span></div></div>
 <h2 class="sh rv">Trending ideas.</h2></div><div class="rail">${S.ideas.slice(0,8).map(i=>tile(i,u)).join("")}</div>
 <div class="wrap"><h2 class="sh rv">How it works.</h2><div class="steps">${[["01","Verify","Aadhaar or PAN, email and an 18+ age check for everyone."],["02","Match","Ideas are scored on sector, stage and ticket size."],["03","Protect","Details unlock only after an NDA, and every view is logged."],["04","Grow","Show interest, get mentored and close the round."]].map(s=>`<div class="step rv"><b>${s[0]}</b><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join("")}</div></div>
-<div class="band rv"><h2>Great ideas<br>deserve capital.</h2>${u?`<button class="btn" onclick="go('dash')">Go to dashboard</button>`:`<button class="btn" onclick="go('auth:entrepreneur')">Join Venture Link</button>`}</div>`}
+<div class="wrap"><section class="dual rv"><h2>Dual interface</h2><div class="steps"><div class="pt" onclick="go('auth:entrepreneur')"><h3>Entrepreneur portal</h3><p>Aadhaar/PAN login, 18+ check and a dashboard to showcase ideas to investors.</p></div><div class="pt" onclick="go('auth:investor')"><h3>Investor portal</h3><p>Verified government ID, email and age checks, with curated opportunities to browse.</p></div></div></section></div>
+<div class="band rv"><h2>Great ideas<br>deserve capital.</h2><p class="qt">“Great ideas need more than passion — they need trust, support, and the right connections.”</p>${u?`<button class="btn" onclick="go('dash')">Go to dashboard</button>`:`<button class="btn" onclick="go('auth:entrepreneur')">Join Venture Link</button>`}</div>`}
 const demo=id=>{setMe(id);load().then(()=>go("dash"))};
 
 function auth(role){const inv=role==="investor";return`<div class="auth vis"><h2>${inv?"Investor":"Founder"} sign-up</h2><p class="mu" style="margin-bottom:16px">Verify once. Existing users are signed straight in.</p>
@@ -127,7 +153,7 @@ return`<div class="card rv"><div class="sb"><div><span class="chip" style="backg
 <div class="tl" style="margin-top:14px"><b>🔒 Access log</b>${v.length?v.map(w=>`<div><b>${esc(U(w.by).name)}</b> (${esc(U(w.by).type)}) viewed · ${fd(w.ts)}</div>`).join(""):`<div>No views yet</div>`}</div>
 <p style="margin-top:12px">⭐ <b>Interested:</b> <span class="mu">${k.length?k.map(w=>esc(U(w.by).name)).join(", "):"none yet"}</span></p>${top?`<p>🤖 <b>Best match:</b> <span class="mu">${esc(top.x.name)} · ${top.s}%</span></p>`:""}</div>`}).join("")||`<p class="mu">No ideas yet.</p>`}</div>`}
 
-function openPitch(){$("#dr").innerHTML=`<div class="dh" style="background:linear-gradient(135deg,#d4ff3a,#4ade80);color:#000"><button class="x" onclick="closeDr()">✕</button><h2>New pitch</h2></div><div class="db">Title<input id="t" class="fi"><div class="row"><div>Sector<select id="s" class="fi">${SECT.map(x=>`<option>${x}</option>`).join("")}</select></div><div>Stage<select id="g" class="fi">${STG.map(x=>`<option>${x}</option>`).join("")}</select></div></div>Ask (₹)<input id="a" type="number" class="fi">Public teaser<input id="p" maxlength="120" class="fi">Confidential details (NDA-gated)<textarea id="x" rows="4" class="fi"></textarea><button class="btn v" onclick="addIdea()">Publish pitch</button></div>`;showDr()}
+function openPitch(){$("#dr").innerHTML=`<div class="dh" style="background:linear-gradient(135deg,#1550a8,#1e9e96);color:#fff"><button class="x" onclick="closeDr()">✕</button><h2>New pitch</h2></div><div class="db">Title<input id="t" class="fi"><div class="row"><div>Sector<select id="s" class="fi">${SECT.map(x=>`<option>${x}</option>`).join("")}</select></div><div>Stage<select id="g" class="fi">${STG.map(x=>`<option>${x}</option>`).join("")}</select></div></div>Ask (₹)<input id="a" type="number" class="fi">Public teaser<input id="p" maxlength="120" class="fi">Confidential details (NDA-gated)<textarea id="x" rows="4" class="fi"></textarea><button class="btn v" onclick="addIdea()">Publish pitch</button></div>`;showDr()}
 async function addIdea(){try{await api("/ideas","POST",{ownerId:ME,title:$("#t").value,sector:$("#s").value,stage:$("#g").value,ask:+$("#a").value,pitch:$("#p").value,detail:$("#x").value});closeDr();toast("Pitch published 🚀");await load()}catch(e){toast(e.message)}}
 
 function showDr(){$("#ov").classList.add("on");$("#dr").classList.add("on")}
