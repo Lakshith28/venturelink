@@ -59,10 +59,10 @@ public class VentureLinkApplication {
     }
 
     static final List<Plan> PLANS = List.of(
-        new Plan(1, "Connect Pass", 70000, 10000000, 4999, false, "Full details and direct contact for any idea. Flat monthly fee."),
-        new Plan(2, "Starter Band", 70000, 500000, 8000, true, "Low-return, small-scale ideas from ₹70K to ₹5L. ₹8,000 for every idea you invest in."),
-        new Plan(3, "Growth Band", 500001, 2500000, 20000, true, "Medium-return ideas from ₹5L to ₹25L. ₹20,000 for every idea you invest in."),
-        new Plan(4, "Premium Band", 2500001, 10000000, 50000, true, "High-return ideas from ₹26L to ₹1 Cr. ₹50,000 for every idea you invest in."));
+        new Plan(1, "Basic Access", 70000, 10000000, 4999, false, "Full details and direct contact for any idea. Flat monthly fee."),
+        new Plan(2, "Small Scale Tier", 70000, 500000, 8000, true, "Low-return, small-scale ideas from ₹70K to ₹5L. ₹8,000 for every idea you invest in."),
+        new Plan(3, "Medium Scale Tier", 500001, 2500000, 20000, true, "Medium-return ideas from ₹5L to ₹25L. ₹20,000 for every idea you invest in."),
+        new Plan(4, "High Scale Tier", 2500001, 10000000, 50000, true, "High-return ideas from ₹26L to ₹1 Cr. ₹50,000 for every idea you invest in."));
     static int band(long ask) { return ask <= 500000 ? 2 : ask <= 2500000 ? 3 : 4; }
     static final Pattern DATA = Pattern.compile("^data:(image/(?:png|jpeg));base64,(.+)$", Pattern.DOTALL);
     static final Comparator<Match> BY_SCORE = (x, y) -> Integer.compare(y.score(), x.score());
@@ -294,7 +294,7 @@ public class VentureLinkApplication {
             int b = band(i.ask());
             boolean pass = hasPlan(investorId, 1);
             if (!pass && !hasPlan(investorId, b))
-                throw new ResponseStatusException(HttpStatus.PAYMENT_REQUIRED, "Subscribe to the " + PLANS.get(b - 1).name() + " (or the Connect Pass) to unlock this idea");
+                throw new ResponseStatusException(HttpStatus.PAYMENT_REQUIRED, "Subscribe to the " + PLANS.get(b - 1).name() + " (or the Basic Access) to unlock this idea");
             fee = pass ? 0 : PLANS.get(b - 1).price();
             unlocks.add(new Unlock(id, investorId, fee, now()));
         }
