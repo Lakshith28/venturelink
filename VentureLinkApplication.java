@@ -121,8 +121,8 @@ public class VentureLinkApplication {
         users.put(id, new User(id, name, id + "@demo.in", "+91 98" + String.format("%08d", h % 100000000), role, city,
                 "XXXX" + String.format("%04d", h % 10000), type, sec, stg, minT, maxT, minR, bio));
     }
-    private void i(String id, String owner, String title, String sector, String stage, long ask, int ret, String city, String pitch, String detail) {
-        ideas.add(new Idea(id, owner, title, sector, stage, ask, ret, city, pitch, false, detail));
+    private void i(String id, String owner, String title, String sector, String stage, long ask, int ret, String pitch, String detail) {
+        ideas.add(new Idea(id, owner, title, sector, stage, ask, ret, users.get(owner).city(), pitch, false, detail));
     }
 
     @PostConstruct
