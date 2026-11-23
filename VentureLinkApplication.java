@@ -206,7 +206,7 @@ public class VentureLinkApplication {
         LocalDate dob;
         try { dob = LocalDate.parse(r.dob()); } catch (Exception e) { throw bad("Select your date of birth"); }
         if (Period.between(dob, LocalDate.now()).getYears() < 18) throw bad("You must be 18 or older");
-        String linked = idLink.get(id);
+        String linked = idLink.get(sha(id));
         if (linked != null && !linked.equals(email)) throw bad("This ID is already linked to a different email");
         boolean exists = users.values().stream().anyMatch(x -> x.email().equalsIgnoreCase(email) && x.role().equals(role));
         if (!exists && role.equals("investor") && (r.sectors() == null || r.sectors().isEmpty() || r.stages() == null || r.stages().isEmpty()))
@@ -224,7 +224,7 @@ public class VentureLinkApplication {
         pending.remove(key);
         String email = key.substring(0, key.indexOf('|'));
         Optional<User> ex = users.values().stream().filter(x -> x.email().equalsIgnoreCase(email) && x.role().equals(v.role())).findFirst();
-        if (ex.isPresent()) { idLink.putIfAbsent(p.id(), email); return ex.get(); }
+        if (ex.isPresent()) { idLink.putIfAbsent(sha(p.id()), email); return ex.get(); }
         Reg r = p.r();
         boolean inv = v.role().equals("investor");
         User u = new User("x" + uid(), r.name().trim(), email, "+91 90000 00000", v.role(), blank(r.city()) ? "India" : r.city().trim(),
@@ -233,7 +233,7 @@ public class VentureLinkApplication {
                 inv && r.minTicket() != null ? r.minTicket() : 70000, inv && r.maxTicket() != null ? r.maxTicket() : 10000000,
                 inv && r.minReturn() != null ? r.minReturn() : 10, "New to Venture Link");
         users.put(u.id(), u);
-        idLink.put(p.id(), email);
+        idLink.put(sha(p.id()), email);
         return u;
     }
 
@@ -431,6 +431,36 @@ public class VentureLinkApplication {
                 .map(inv -> mine.stream().map(i -> scoreIdea(i, inv, inv.id())).max(Comparator.comparingInt(Match::score))
                         .orElse(new Match(inv.id(), "", 0, List.of())))
                 .sorted(BY_SCORE).toList();
+    }
+
+    private static String sha(String s) {
+        try { return HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(s.getBytes(java.nio.charset.StandardCharsets.UTF_8))); }
+        catch (Exception e) { throw new IllegalStateException(e); }
+    }
+
+    // ---------- Profiles: public view for everyone, private details only for the owner ----------
+    @GetMapping("/profile/{id}")
+    public Map<String, Object> profile(@PathVariable String id, @RequestParam(required = false) String viewer) {
+        User u = users.get(id);
+        if (u == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Profile not found");
+        boolean self = id.equals(viewer), inv = u.role().equals("investor");
+        Set<String> mine = ideas.stream().filter(x -> x.owner().equals(id)).map(Idea::id).collect(Collectors.toSet());
+        Map<String, Object> m = new LinkedHashMap<>();
+        m.put("id", u.id()); m.put("name", u.name()); m.put("role", u.role()); m.put("city", u.city());
+        m.put("type", u.type()); m.put("bio", u.bio()); m.put("verified", true); m.put("self", self);
+        m.put("sectors", u.sectors()); m.put("stages", u.stages());
+        m.put("minTicket", u.minTicket()); m.put("maxTicket", u.maxTicket()); m.put("minReturn", u.minReturn());
+        m.put("ideas", mine.size());
+        m.put("unlocks", (int) unlocks.stream().filter(x -> inv ? x.inv().equals(id) : mine.contains(x.idea())).count());
+        m.put("groups", (int) groups.stream().filter(g -> g.members.contains(id)).count());
+        m.put("approaches", (int) approaches.stream().filter(a -> inv ? a.to().equals(id) : a.from().equals(id)).count());
+        boolean unlocked = !inv && viewer != null && unlocks.stream().anyMatch(x -> x.inv().equals(viewer) && mine.contains(x.idea()));
+        if (self || unlocked) { m.put("email", u.email()); m.put("phone", u.phone()); }
+        if (self) {
+            m.put("idMasked", u.idMasked());
+            m.put("plans", subs.stream().filter(s -> s.inv().equals(id)).map(s -> PLANS.get(s.plan() - 1).name()).toList());
+        }
+        return m;
     }
 
     // ---------- Mentors ----------
